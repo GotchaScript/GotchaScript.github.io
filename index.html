@@ -5,36 +5,192 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
-        /* SMOOTH RGB ANIMATION */
-        @keyframes rgb {
+        /* SMOOTH RGB BORDER ANIMATION */
+        @keyframes rgbGlow {
             0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
             33% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
             66% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff; }
             100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
         }
 
-        @keyframes arrowRgb {
-            0% { background-color: #ff0000; filter: drop-shadow(0 0 8px #ff0000); }
-            50% { background-color: #0044ff; filter: drop-shadow(0 0 8px #0044ff); }
-            100% { background-color: #ff0000; filter: drop-shadow(0 0 8px #ff0000); }
-        }
-
         body {
             background-color: #000;
             margin: 0;
             display: flex;
-            justify-content: center; /* Centers the whole hub on your screen */
-            padding-top: 50px;
+            justify-content: center;
+            padding: 40px 0;
             font-family: 'Inter', sans-serif;
             color: white;
         }
 
-        /* THE HUB CONTAINER - This stops it from being messy */
-        .hub-wrapper {
-            width: 1000px; /* Fixed width like a real app window */
+        /* LOCKED CONTAINER TO PREVENT MESSY STRETCHING */
+        .hub-container {
+            width: 1050px;
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        /* HEADER SECTION */
+        .header-section {
+            display: grid;
+            grid-template-columns: 1fr 200px 1fr;
+            gap: 30px;
+            width: 100%;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .side-panel {
+            height: 130px;
+            background: #080808;
+            border: 4px solid #ff0000;
+            border-radius: 15px;
+            animation: rgbGlow 4s infinite linear;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .logo-box {
+            width: 180px;
+            height: 180px;
+            border: 3px solid #fff;
+            border-radius: 20px;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* LARGE BLUE ARROWS */
+        .arrow-row {
+            display: flex;
+            justify-content: space-around;
+            width: 75%;
+            margin: 20px 0;
+        }
+
+        .arrow-graphic {
+            width: 55px;
+            height: 75px;
+            background: #0033ff; /* Dark blue from your image */
+            clip-path: polygon(40% 0%, 60% 0%, 60% 60%, 100% 60%, 50% 100%, 0% 60%, 40% 60%);
+            filter: drop-shadow(0 0 10px #0033ff);
+        }
+
+        /* SCRIPT GRID */
+        .script-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            width: 100%;
+        }
+
+        .script-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .col-label {
+            text-align: center;
+            font-size: 13px;
+            min-height: 40px;
+            color: #aaa;
+        }
+
+        .script-card {
+            background: #050505;
+            border: 3px solid #ff0000;
+            border-radius: 10px;
+            padding: 15px;
+            animation: rgbGlow 5s infinite linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .script-card:hover { transform: scale(1.02); }
+
+        /* THE LONG WHITE TEXT */
+        .white-text-bar {
+            width: 90%;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
+
+        h2 { margin: 0; font-size: 22px; }
+        .sub-txt { color: #ff9900; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="hub-container">
+    <div class="header-section">
+        <div class="side-panel">
+            <h2>Welcome To Gotcha</h2>
+            <div class="sub-txt">🔥🔥Script!🔥🔥</div>
+        </div>
+
+        <div class="logo-box">
+            <img src="https://via.placeholder.com/180" alt="Your Logo">
+        </div>
+
+        <div class="side-panel">
+            <h2>Copy The Script Below</h2>
+            <div class="sub-txt">😎And Enjoy😎</div>
+        </div>
+    </div>
+
+    <div class="arrow-row">
+        <div class="arrow-graphic"></div>
+        <div class="arrow-graphic"></div>
+    </div>
+
+    <div class="script-grid">
+        <div class="script-col">
+            <div class="col-label">Example Icon Label:<br>"Escape Tsunami For Brainrots"</div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+        </div>
+
+        <div class="script-col">
+            <div class="col-label"></div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+        </div>
+
+        <div class="script-col">
+            <div class="col-label"></div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-text-bar">PUT SCRIPT NAME HERE</div></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>            align-items: center;
         }
 
         /* TOP SECTION */
