@@ -2,39 +2,99 @@
 <html>
 <head>
     <style>
-        /* 1. THE RGB ANIMATION */
-        @keyframes rgbGlow {
-            0% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
-            33% { border-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
-            66% { border-color: #0000ff; box-shadow: 0 0 10px #0000ff; }
-            100% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        /* THE RGB EFFECT */
+        @keyframes rgb {
+            0% { border-color: red; box-shadow: 0 0 10px red; }
+            33% { border-color: lime; box-shadow: 0 0 10px lime; }
+            66% { border-color: blue; box-shadow: 0 0 10px blue; }
+            100% { border-color: red; box-shadow: 0 0 10px red; }
         }
 
-        body {
-            background-color: #000;
-            color: white;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            padding: 20px;
+        body { background: #000; display: flex; justify-content: center; margin: 0; padding-top: 50px; font-family: sans-serif; }
+        
+        /* THIS BOX LOCKS EVERYTHING IN PLACE */
+        .ui-wrapper { width: 800px; display: block; }
+
+        /* TOP SECTION: 3 Boxes in a row */
+        .top-row { display: grid; grid-template-columns: 280px 180px 280px; gap: 30px; align-items: center; margin-bottom: 20px; }
+        
+        .header-box { 
+            height: 100px; border: 3px solid red; border-radius: 10px; 
+            background: #080808; animation: rgb 3s infinite linear;
+            display: flex; flex-direction: column; justify-content: center; text-align: center;
         }
 
-        /* This container LOCKS the width so it doesn't get messy */
-        .wrapper {
-            width: 900px; 
-            display: flex;
-            flex-direction: column;
+        .logo-center { 
+            width: 170px; height: 170px; border: 2px solid #fff; border-radius: 15px; 
+            background: #111; /* YOUR LOGO GOES HERE */
         }
 
-        /* TOP SECTION: Left Box | Center Logo | Right Box */
-        .top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 150px;
+        /* ARROWS */
+        .arrows { display: flex; justify-content: space-around; padding: 0 80px; margin: 10px 0; }
+        .arrow-down { 
+            width: 40px; height: 50px; background: #0033ff; 
+            clip-path: polygon(40% 0%, 60% 0%, 60% 60%, 100% 60%, 50% 100%, 0% 60%, 40% 60%); 
         }
 
-        .side-box {
+        /* BOTTOM 3 COLUMNS */
+        .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .col { display: flex; flex-direction: column; gap: 10px; }
+        
+        .label { font-size: 11px; color: #666; text-align: center; height: 30px; }
+
+        .btn { 
+            height: 50px; border: 2px solid red; border-radius: 6px; 
+            background: #050505; animation: rgb 4s infinite linear;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .white-bar { width: 85%; height: 2px; background: white; box-shadow: 0 0 8px white; }
+
+        h2 { color: white; font-size: 16px; margin: 0; }
+        span { color: #ff9900; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="ui-wrapper">
+    <div class="top-row">
+        <div class="header-box">
+            <h2>Welcome To Gotcha</h2>
+            <span>🔥🔥Script!🔥🔥</span>
+        </div>
+        <div class="logo-center"></div>
+        <div class="header-box">
+            <h2>Copy The Script Below</h2>
+            <span>😎And Enjoy😎</span>
+        </div>
+    </div>
+
+    <div class="arrows">
+        <div class="arrow-down"></div>
+        <div class="arrow-down"></div>
+    </div>
+
+    <div class="grid">
+        <div class="col">
+            <div class="label">Escape Tsunami For Brainrots</div>
+            <div class="btn"><div class="white-bar"></div></div>
+            <div class="btn"><div class="white-bar"></div></div>
+        </div>
+        <div class="col">
+            <div class="label"></div>
+            <div class="btn"><div class="white-bar"></div></div>
+            <div class="btn"><div class="white-bar"></div></div>
+        </div>
+        <div class="col">
+            <div class="label"></div>
+            <div class="btn"><div class="white-bar"></div></div>
+            <div class="btn"><div class="white-bar"></div></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>        .side-box {
             width: 320px;
             height: 100px;
             background: #0a0a0a;
