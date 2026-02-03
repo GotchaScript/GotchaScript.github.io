@@ -2,39 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gotcha Hub RGB</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@700&display=swap');
 
-        /* RGB Border Animation */
-        @keyframes rgbBorder {
+        /* The "True RGB" Animation */
+        @keyframes rgbGlow {
             0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
-            20% { border-color: #ff8800; box-shadow: 0 0 15px #ff8800; }
-            40% { border-color: #ffff00; box-shadow: 0 0 15px #ffff00; }
-            60% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
-            80% { border-color: #0088ff; box-shadow: 0 0 15px #0088ff; }
-            100% { border-color: #ff00ff; box-shadow: 0 0 15px #ff00ff; }
-        }
-
-        /* Rainbow Text Animation */
-        @keyframes rgbText {
-            0% { color: #ff0000; text-shadow: 0 0 8px #ff0000; }
-            50% { color: #00ff00; text-shadow: 0 0 8px #00ff00; }
-            100% { color: #ff0000; text-shadow: 0 0 8px #ff0000; }
-        }
-
-        /* Galaxy Background Shift */
-        @keyframes galaxyShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            33% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
+            66% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff; }
+            100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
         }
 
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* COMPACT POSTER CONTAINER (Prevents it from being messy) */
+        .showcase-container {
+            width: 900px;
+            background: #050505;
+            padding: 40px;
+            border: 1px solid #111;
+        }
+
+        /* 1. TOP ROW */
+        .top-row {
+            display: grid;
+            grid-template-columns: 1fr 180px 1fr;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .side-panel {
+            background: #080808;
+            border: 3px solid #00f2ff;
+            animation: rgbGlow 3s infinite linear;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .side-panel h2 { font-size: 14px; margin: 0; color: #888; }
+        .side-panel h1 { font-size: 28px; margin: 5px 0 0 0; font-family: 'Orbitron'; }
+
+        /* THE CIRCULAR LOGO */
+        .center-logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            background: radial-gradient(circle, #ff00ff, #00d4ff, #ff8c00, #00ff00);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 90px;
+            font-family: 'Orbitron';
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+        }
+
+        /* 2. ARROWS */
+        .arrows {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 100px;
+            font-size: 40px;
+            color: #00f2ff;
+            margin-bottom: 20px;
+        }
+
+        /* 3. THREE COLUMNS */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .column-label {
+            text-align: center;
+            font-size: 11px;
+            color: #00f2ff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* THE --- --- --- BARS */
+        .neon-bar {
+            background: #0a0a0a;
+            border: 2px solid #00f2ff;
+            animation: rgbGlow 5s infinite linear;
+            height: 45px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="showcase-container">
+    <div class="top-row">
+        <div class="side-panel">
+            <h2>WELCOME TO</h2>
+            <h1>GOTCHA</h1>
+        </div>
+
+        <div class="center-logo">G</div>
+
+        <div class="side-panel">
+            <h2>COPY SCRIPT BELOW</h2>
+            <div style="font-size: 20px; margin-top:5px;">😎 AND ENJOY 😎</div>
+        </div>
+    </div>
+
+    <div class="arrows">
+        <span>⬇️</span>
+        <span>⬇️</span>
+    </div>
+
+    <div class="bottom-grid">
+        <div>
+            <div class="column-label">"Escape Tsunami For Brainrots"</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+        </div>
+        <div>
+            <div class="column-label">Script List</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+        </div>
+        <div>
+            <div class="column-label">Placeholders</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+            <div class="neon-bar">---</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>            font-family: 'Orbitron', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
