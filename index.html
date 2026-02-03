@@ -3,38 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gotcha Scripts Showcase</title>
+    <title>Gotcha Hub RGB</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap');
+
+        /* RGB Border Animation */
+        @keyframes rgbBorder {
+            0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
+            20% { border-color: #ff8800; box-shadow: 0 0 15px #ff8800; }
+            40% { border-color: #ffff00; box-shadow: 0 0 15px #ffff00; }
+            60% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
+            80% { border-color: #0088ff; box-shadow: 0 0 15px #0088ff; }
+            100% { border-color: #ff00ff; box-shadow: 0 0 15px #ff00ff; }
+        }
+
+        /* Rainbow Text Animation */
+        @keyframes rgbText {
+            0% { color: #ff0000; text-shadow: 0 0 8px #ff0000; }
+            50% { color: #00ff00; text-shadow: 0 0 8px #00ff00; }
+            100% { color: #ff0000; text-shadow: 0 0 8px #ff0000; }
+        }
+
+        /* Galaxy Background Shift */
+        @keyframes galaxyShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         body {
             background-color: #000;
             color: #fff;
-            font-family: 'Orbitron', 'Segoe UI', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 30px;
             margin: 0;
         }
 
-        /* 1. TOP SECTION: THREE HORIZONTAL BOXES */
-        .top-row {
+        .header-row {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
             width: 100%;
             max-width: 1100px;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
 
-        .welcome-box, .copy-box {
-            width: 30%;
-            border: 3px solid #00d4ff;
-            background: rgba(0, 212, 255, 0.05);
-            padding: 20px;
-            border-radius: 15px;
+        .neon-box {
+            width: 28%;
+            background: #080808;
+            border: 3px solid #ff0000; /* Start Red */
+            animation: rgbBorder 4s infinite linear;
+            border-radius: 12px;
+            padding: 25px 10px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            position: relative;
         }
+
+        .fire-side {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 1.5;
+        }
+
+        .logo-section {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .galaxy-g {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            /* Animated Galaxy Gradient */
+            background: linear-gradient(-45deg, #ff0000, #ff00ff, #0000ff, #00ff00);
+            background-size: 400% 400%;
+            animation: galaxyShift 5s infinite ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            font-weight: 900;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+
+        .arrows {
+            display: flex;
+            justify-content: space-around;
+            width: 70%;
+            font-size: 50px;
+            margin: 10px 0;
+            animation: rgbText 3s infinite linear;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .column-title {
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 10px;
+            animation: rgbText 4s infinite linear;
+        }
+
+        .rgb-bar {
+            background: #0a0a0a;
+            border: 2px solid #ff0000;
+            animation: rgbBorder 6s infinite linear;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .rgb-bar:hover {
+            transform: scale(1.05);
+            background: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-row">
+        <div class="neon-box">
+            <div class="fire-side">🔥<br>🔥<br>🔥</div>
+            <h3>WELCOME TO</h3>
+            <h1 style="margin:0;">GOTCHA</h1>
+        </div>
+
+        <div class="logo-section">
+            <div class="galaxy-g">G</div>
+            <h2 style="margin-top:10px; letter-spacing: 5px;">GOTCHA</h2>
+        </div>
+
+        <div class="neon-box">
+            <h3>COPY SCRIPT</h3>
+            <div style="font-size: 20px;">😎 ENJOY 😎</div>
+        </div>
+    </div>
+
+    <div class="arrows">
+        <div>⬇️</div>
+        <div>⬇️</div>
+    </div>
+
+    <div class="grid-container">
+        <div>
+            <div class="column-title">"ESCAPE TSUNAMI FOR BRAINROTS"</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_1')">---</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_2')">---</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_3')">---</div>
+        </div>
+        <div>
+            <div class="column-title">MAIN SCRIPTS</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_4')">---</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_5')">---</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_6')">---</div>
+        </div>
+        <div>
+            <div class="column-title">OTHERS</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_7')">---</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_8')">---</div>
+            <div class="rgb-bar" onclick="copy('SCRIPT_9')">---</div>
+        </div>
+    </div>
+
+    <script>
+        function copy(text) {
+            navigator.clipboard.writeText(text);
+            alert("Copied to Clipboard!");
+        }
+    </script>
+</body>
+</html>        }
 
         /* THE CENTER LOGO */
         .center-logo-container {
