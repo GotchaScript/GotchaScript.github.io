@@ -2,39 +2,168 @@
 <html>
 <head>
     <style>
-        /* RGB Border Animation */
-        @keyframes rainbow {
-            0% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
-            33% { border-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
-            66% { border-color: #0000ff; box-shadow: 0 0 10px #0000ff; }
-            100% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
         }
 
-        body { background: #000; color: white; font-family: sans-serif; display: flex; justify-content: center; margin: 0; padding-top: 20px; }
-
-        /* FIXED SIZE - WILL NOT STRETCH */
-        #hub { width: 900px; position: relative; }
-
-        /* TOP SECTION */
-        .top-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        
-        .box-side { 
-            width: 320px; height: 110px; background: #080808; 
-            border: 3px solid red; border-radius: 12px; 
-            animation: rainbow 3s infinite linear;
-            display: flex; flex-direction: column; justify-content: center; text-align: center;
+        /* Fixed container: This is the secret to it not being messy */
+        .ui-container {
+            width: 1000px;
+            display: block;
         }
 
-        #logo-space { 
-            width: 160px; height: 160px; border: 2px solid white; 
-            border-radius: 15px; background: #111; 
-            /* Put your Logo image here */
+        /* Top Section: [Box] [Logo] [Box] */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        /* BIG ARROWS */
-        .arrow-box { display: flex; justify-content: space-around; width: 100%; margin-bottom: 10px; }
-        .blue-arrow { 
-            width: 50px; height: 60px; background: #0033ff; 
+        .side-panel {
+            width: 380px;
+            height: 120px;
+            background: #050505;
+            border: 4px solid #0000ff; /* Exact Blue from image */
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 0 15px #0000ff;
+        }
+
+        .logo-center {
+            width: 160px;
+            height: 160px;
+            border: 2px solid #fff;
+            background: #111;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Blue Arrows */
+        .arrow-row {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 100px;
+            margin-bottom: 10px;
+        }
+
+        .blue-arrow {
+            width: 50px;
+            height: 70px;
+            background: #00008b;
+            clip-path: polygon(40% 0%, 60% 0%, 60% 60%, 100% 60%, 50% 100%, 0% 60%, 40% 60%);
+        }
+
+        /* 3-Column Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: 320px 320px 320px;
+            gap: 20px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .label {
+            font-size: 13px;
+            color: #777;
+            text-align: center;
+            height: 40px;
+        }
+
+        .script-card {
+            background: #050505;
+            border: 3px solid #0000ff;
+            height: 70px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px #0000ff;
+        }
+
+        /* Long White Text Box you asked for */
+        .white-bar {
+            width: 90%;
+            height: 35px;
+            background: #fff;
+            color: #000;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        h2 { margin: 0; font-size: 22px; }
+        .sub { color: #ffae00; margin-top: 5px; }
+
+    </style>
+</head>
+<body>
+
+<div class="ui-container">
+    
+    <div class="header">
+        <div class="side-panel">
+            <h2>Welcome To Gotcha</h2>
+            <div class="sub">🔥🔥Script!🔥🔥</div>
+        </div>
+
+        <div class="logo-center">
+            <span style="color:#555">LOGO</span>
+        </div>
+
+        <div class="side-panel">
+            <h2>Copy The Script Below</h2>
+            <div class="sub">😎And Enjoy😎</div>
+        </div>
+    </div>
+
+    <div class="arrow-row">
+        <div class="blue-arrow"></div>
+        <div class="blue-arrow"></div>
+    </div>
+
+    <div class="grid">
+        <div class="column">
+            <div class="label">Example Icon Label:<br>"Escape Tsunami For Brainrots"</div>
+            <div class="script-card"><div class="white-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-bar">PUT SCRIPT NAME HERE</div></div>
+        </div>
+
+        <div class="column">
+            <div class="label"></div>
+            <div class="script-card"><div class="white-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-bar">PUT SCRIPT NAME HERE</div></div>
+        </div>
+
+        <div class="column">
+            <div class="label"></div>
+            <div class="script-card"><div class="white-bar">PUT SCRIPT NAME HERE</div></div>
+            <div class="script-card"><div class="white-bar">PUT SCRIPT NAME HERE</div></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>            width: 50px; height: 60px; background: #0033ff; 
             clip-path: polygon(40% 0%, 60% 0%, 60% 60%, 100% 60%, 50% 100%, 0% 60%, 40% 60%); 
         }
 
