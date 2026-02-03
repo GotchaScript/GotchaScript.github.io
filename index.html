@@ -3,38 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gotcha Scripts | RGB Hub</title>
+    <title>Gotcha Scripts | Hub</title>
     <style>
+        /* The RGB Rainbow Animation */
         @keyframes rgbGlow {
-            0% { border-color: #ff0000; box-shadow: 0 0 20px #ff0000; }
-            33% { border-color: #00ff00; box-shadow: 0 0 20px #00ff00; }
-            66% { border-color: #0000ff; box-shadow: 0 0 20px #0000ff; }
-            100% { border-color: #ff0000; box-shadow: 0 0 20px #ff0000; }
+            0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
+            33% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
+            66% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff; }
+            100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
         }
+
         body {
             margin: 0;
+            padding: 0;
             background: #000 url('Gemini_Generated_Image_tef2wstef2wstef2.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
         }
+
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.8);
             z-index: 1;
         }
-        .content {
+
+        .container {
             position: relative;
             z-index: 2;
-            width: 85%;
-            max-width: 380px;
+            width: 90%;
+            max-width: 500px;
+            padding: 40px 10px;
             text-align: center;
-            padding: 30px;
+        }
+
+        .logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #fff;
+        }
+
+        /* This makes the buttons stack vertically (One per line) */
+        .script-button {
+            background: rgba(15, 15, 15, 0.95);
+            display: block; /* Forces it to be its own line */
+            width: 100%;
+            margin-bottom: 20px; /* Space between buttons */
+            padding: 25px 0;
+            border-radius: 15px;
+            border: 3px solid #ff0000;
+            cursor: pointer;
+            text-decoration: none;
+            animation: rgbGlow 4s infinite linear;
+            transition: 0.2s;
+        }
+
+        .script-button:active {
+            transform: scale(0.96);
+        }
+
+        .btn-title {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            display: block;
+        }
+
+        .btn-desc {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        #copy-popup {
+            position: fixed;
+            top: 20px;
+            background: #00ff00;
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: none;
+            z-index: 100;
+            box-shadow: 0 0 15px #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div id="copy-popup">COPIED SUCCESSFULLY!</div>
+
+    <div class="container">
+        <img src="Gemini_Generated_Image_tef2wstef2wstef2.png" class="logo">
+        <h1>GOTCHA SCRIPTS</h1>
+        <p style="margin-bottom: 40px; color: #ccc;">Select a script to copy loadstring</p>
+
+        <div class="script-button" onclick="copy('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/GotchaScript/GotchaScript.github.io/main/main.lua\'))()')">
+            <span class="btn-title">🚀 MAIN HUB</span>
+            <span class="btn-desc">Universal script for all games</span>
+        </div>
+
+        <div class="script-button" onclick="copy('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/GotchaScript/GotchaScript.github.io/main/farm.lua\'))()')">
+            <span class="btn-title">⚡ AUTO FARM</span>
+            <span class="btn-desc">Fastest farming script</span>
+        </div>
+
+        <div class="script-button" onclick="copy('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/GotchaScript/GotchaScript.github.io/main/esp.lua\'))()')">
+            <span class="btn-title">👁️ ESP / WALLS</span>
+            <span class="btn-desc">See players through objects</span>
+        </div>
+
+    </div>
+
+    <script>
+        function copy(text) {
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+
+            const popup = document.getElementById('copy-popup');
+            popup.style.display = 'block';
+            setTimeout(() => { popup.style.display = 'none'; }, 2000);
+        }
+    </script>
+</body>
+</html>            padding: 30px;
             background: rgba(10, 10, 10, 0.9);
             border: 3px solid #ff0000;
             border-radius: 25px;
