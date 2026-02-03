@@ -2,39 +2,112 @@
 <html>
 <head>
     <style>
-        /* THE RGB EFFECT */
-        @keyframes rgb {
-            0% { border-color: red; box-shadow: 0 0 10px red; }
-            33% { border-color: lime; box-shadow: 0 0 10px lime; }
-            66% { border-color: blue; box-shadow: 0 0 10px blue; }
-            100% { border-color: red; box-shadow: 0 0 10px red; }
+        /* RGB Border Animation */
+        @keyframes rainbow {
+            0% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+            33% { border-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
+            66% { border-color: #0000ff; box-shadow: 0 0 10px #0000ff; }
+            100% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
         }
 
-        body { background: #000; display: flex; justify-content: center; margin: 0; padding-top: 50px; font-family: sans-serif; }
-        
-        /* THIS BOX LOCKS EVERYTHING IN PLACE */
-        .ui-wrapper { width: 800px; display: block; }
+        body { background: #000; color: white; font-family: sans-serif; display: flex; justify-content: center; margin: 0; padding-top: 20px; }
 
-        /* TOP SECTION: 3 Boxes in a row */
-        .top-row { display: grid; grid-template-columns: 280px 180px 280px; gap: 30px; align-items: center; margin-bottom: 20px; }
+        /* FIXED SIZE - WILL NOT STRETCH */
+        #hub { width: 900px; position: relative; }
+
+        /* TOP SECTION */
+        .top-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         
-        .header-box { 
-            height: 100px; border: 3px solid red; border-radius: 10px; 
-            background: #080808; animation: rgb 3s infinite linear;
+        .box-side { 
+            width: 320px; height: 110px; background: #080808; 
+            border: 3px solid red; border-radius: 12px; 
+            animation: rainbow 3s infinite linear;
             display: flex; flex-direction: column; justify-content: center; text-align: center;
         }
 
-        .logo-center { 
-            width: 170px; height: 170px; border: 2px solid #fff; border-radius: 15px; 
-            background: #111; /* YOUR LOGO GOES HERE */
+        #logo-space { 
+            width: 160px; height: 160px; border: 2px solid white; 
+            border-radius: 15px; background: #111; 
+            /* Put your Logo image here */
         }
 
-        /* ARROWS */
-        .arrows { display: flex; justify-content: space-around; padding: 0 80px; margin: 10px 0; }
-        .arrow-down { 
-            width: 40px; height: 50px; background: #0033ff; 
+        /* BIG ARROWS */
+        .arrow-box { display: flex; justify-content: space-around; width: 100%; margin-bottom: 10px; }
+        .blue-arrow { 
+            width: 50px; height: 60px; background: #0033ff; 
             clip-path: polygon(40% 0%, 60% 0%, 60% 60%, 100% 60%, 50% 100%, 0% 60%, 40% 60%); 
         }
+
+        /* THE 3 COLUMNS */
+        .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .col { display: flex; flex-direction: column; gap: 15px; }
+        
+        .label-text { font-size: 11px; color: #777; text-align: center; height: 30px; }
+
+        .btn { 
+            height: 60px; background: #050505; border: 2px solid red; 
+            border-radius: 8px; animation: rainbow 4s infinite linear;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        /* THE LONG WHITE TEXT BOX */
+        .name-bar { 
+            width: 85%; height: 25px; background: white; 
+            color: black; font-weight: bold; font-size: 13px;
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 3px;
+        }
+
+        h2 { margin: 0; font-size: 18px; }
+        .fire { color: #ff9900; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div id="hub">
+    <div class="top-container">
+        <div class="box-side">
+            <h2>Welcome To Gotcha</h2>
+            <div class="fire">🔥🔥Script!🔥🔥</div>
+        </div>
+        
+        <div id="logo-space">
+             </div>
+
+        <div class="box-side">
+            <h2>Copy The Script Below</h2>
+            <div class="fire">😎And Enjoy😎</div>
+        </div>
+    </div>
+
+    <div class="arrow-box">
+        <div class="blue-arrow"></div>
+        <div class="blue-arrow"></div>
+    </div>
+
+    <div class="grid">
+        <div class="col">
+            <div class="label-text">Example Icon Label:<br>"Escape Tsunami For Brainrots"</div>
+            <div class="btn"><div class="name-bar">SCRIPT NAME</div></div>
+            <div class="btn"><div class="name-bar">SCRIPT NAME</div></div>
+        </div>
+
+        <div class="col">
+            <div class="label-text"></div>
+            <div class="btn"><div class="name-bar">SCRIPT NAME</div></div>
+            <div class="btn"><div class="name-bar">SCRIPT NAME</div></div>
+        </div>
+
+        <div class="col">
+            <div class="label-text"></div>
+            <div class="btn"><div class="name-bar">SCRIPT NAME</div></div>
+            <div class="btn"><div class="name-bar">SCRIPT NAME</div></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>        }
 
         /* BOTTOM 3 COLUMNS */
         .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
