@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gotcha Scripts | RGB Hub</title>
     <style>
-        @keyframes rgbBorder {
-            0% { border-color: #ff0000; box-shadow: 0 0 30px #ff0000; }
-            33% { border-color: #00ff00; box-shadow: 0 0 30px #00ff00; }
-            66% { border-color: #0000ff; box-shadow: 0 0 30px #0000ff; }
-            100% { border-color: #ff0000; box-shadow: 0 0 30px #ff0000; }
+        @keyframes rgbGlow {
+            0% { border-color: #ff0000; box-shadow: 0 0 20px #ff0000; }
+            33% { border-color: #00ff00; box-shadow: 0 0 20px #00ff00; }
+            66% { border-color: #0000ff; box-shadow: 0 0 20px #0000ff; }
+            100% { border-color: #ff0000; box-shadow: 0 0 20px #ff0000; }
         }
 
         body {
             margin: 0;
-            /* USING YOUR UPLOADED FILE NAME BELOW */
             background: #000 url('Gemini_Generated_Image_tef2wstef2wstef2.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
@@ -23,18 +22,90 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden;
         }
 
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 1;
         }
 
         .content {
             position: relative;
             z-index: 2;
+            width: 85%;
+            max-width: 380px;
+            text-align: center;
+            padding: 30px;
+            background: rgba(10, 10, 10, 0.9);
+            border: 3px solid #ff0000;
+            border-radius: 25px;
+            animation: rgbGlow 5s infinite linear;
+        }
+
+        .logo-main {
+            width: 140px;
+            height: 140px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .script-box {
+            background: #111;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            border: 2px solid #ff0000;
+            animation: rgbGlow 3s infinite linear;
+            transition: 0.2s;
+        }
+
+        .script-box:active { transform: scale(0.95); }
+
+        #status {
+            color: #00ff00;
+            display: none;
+            margin-top: 15px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="content">
+        <img src="Gemini_Generated_Image_tef2wstef2wstef2.png" class="logo-main">
+        <h1>GOTCHA SCRIPTS</h1>
+        <p style="color: #aaa; font-size: 14px;">One-Tap Roblox Loadstring</p>
+
+        <div class="script-box" onclick="copyCode()">
+            <div style="color:white; font-weight:bold;">📋 COPY SCRIPT</div>
+        </div>
+        
+        <p id="status">COPIED TO CLIPBOARD!</p>
+    </div>
+
+    <script>
+        function copyCode() {
+            // Put your actual script here
+            const loadstring = "loadstring(game:HttpGet('https://raw.githubusercontent.com/GotchaScript/Scripts/main/source.lua'))()";
+            const area = document.createElement('textarea');
+            area.value = loadstring;
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand('copy');
+            document.body.removeChild(area);
+            const status = document.getElementById('status');
+            status.style.display = 'block';
+            setTimeout(() => { status.style.display = 'none'; }, 2000);
+        }
+    </script>
+</body>
+</html>            z-index: 2;
             width: 85%;
             max-width: 400px;
             text-align: center;
